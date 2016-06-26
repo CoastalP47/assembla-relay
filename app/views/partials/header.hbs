@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Relay</title>
+    <link href="/vendor/foundation-sites/dist/foundation.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body ng-app="ticketstotasks">
+
+<header ng-controller="HeaderController">
+    <div class="row">
+        <div class="small-6 columns logo">
+            Relay
+        </div>
+
+        <div class="small-6 columns user">
+            <a class="float-right"
+                ng-class="{'active':userNav}"
+                ng-click="showUserNav()">
+                <span class="inline vertical-align-middle">{{currentUser.name}}</span>
+                <i class="profile-image inline vertical-align-middle" style="background-image: url('/assets/images/profile_{{currentUser.id}}.png');"></i>
+            </a>
+        </div>
+
+    </div>
+</header>

@@ -1,0 +1,28 @@
+header{
+  height:$headerHeight;
+  background:$primaryColor;
+  border-bottom:2px solid $accentColor;
+  color:$backgroundColor;
+
+  .logo{
+
+  }
+
+  .user{
+    height:100%;
+    padding-right:0;
+
+    > a{
+      height: $headerHeight;
+      color:white;
+      padding:0 $gutterPadding;
+      line-height:$headerHeight;
+
+      &:hover,
+      &.active,
+      &.hover{
+        background: $secondaryColor;
+      }
+    }
+  }
+}

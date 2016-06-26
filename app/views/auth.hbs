@@ -1,0 +1,41 @@
+<div class="login-form"
+    ng-controller="AuthenticationController">
+    <div class="panel">
+        <div class="gutter">
+            <form id="authForm" name="authForm" novalidate
+                ng-submit="submitForm()" >
+                <div class="row">
+                    <div class="small-12 columns">
+                        <label>API Key
+                            <input type="text" id="api_key" name="api_key" placeholder="API Key"
+                                ng-model="data.api_key"
+                                ng-required="true">
+                        </label>
+                        <p ng-show="authForm.data.api_key.$invalid && !authForm.data.api_key.$pristine" class="help-block">You name is required.</p>
+                    </div>
+                    <div class="small-12 columns">
+                        <label>API Secret
+                            <input type="text" id="api_secret" name="api_secret" placeholder="API Secret"
+                                ng-model="data.api_secret"
+                                ng-required="true">
+                        </label>
+                        <p ng-show="authForm.data.api_secret.$invalid && !authForm.data.api_secret.$pristine" class="help-block">You name is required.</p>
+                    </div>
+                    <div class="small-12 columns">
+                        <label>
+                            <input type="checkbox" id="remember_me" name="remember_me"
+                                ng-model="data.remember_me"/>
+                            Remember Me
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <button type="submit" class="button float-right"
+                            ng-disabled="authForm.$invalid">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

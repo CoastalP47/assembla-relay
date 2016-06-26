@@ -1,0 +1,27 @@
+.inline{
+  display:inline-block;
+}
+
+.vertical-align-{
+  &top{
+    vertical-align: top;
+  }
+  &middle{
+    vertical-align: middle;
+  }
+  &bottom{
+    vertical-align: bottom;
+  }
+}
+
+.float-{
+  &left{
+    float:left;
+  }
+  &right{
+    float:right;
+  }
+  &none{
+    float:none;
+  }
+}
