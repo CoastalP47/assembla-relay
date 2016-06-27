@@ -1,5 +1,5 @@
 const electron = require('electron');
-const {app, Menu, Tray} = electron;
+const {app} = electron;
 const {BrowserWindow} = electron;
 
 app.on('windows-all-closed', () => {
@@ -26,7 +26,10 @@ let createWindow = (load_url) => {
     });
 
     // Load URL
-    win.loadURL(`http://localhost:${port}`);
+    if(load_url)
+        win.loadURL(load_url);
+    else
+        win.loadURL(`http://localhost:${port}`);
 
     // Disable window menu
     // win.setMenu(null);
@@ -40,8 +43,11 @@ let createWindow = (load_url) => {
     });
 };
 
-app.on('ready', createWindow);
+// app.on('ready', createWindow);
 
 module.exports = {
-    createWindow: createWindow
+    init: () => {
+        createWindow();
+    },
+    newWindow : createWindow
 };
