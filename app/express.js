@@ -1,5 +1,6 @@
 const express 	= require('express');
 const hbs 		= require('express-hbs');
+const _         = require('lodash');
 
 module.exports = () => {
     let app = express();
@@ -35,7 +36,22 @@ module.exports = () => {
      * Load routes
      */
     //api routes
-
+    var apiRouters = require('require-all')({
+        dirname     :  `${__dirname}/assembla/routes`
+    });
+    _.each(apiRouters, function(router, key){
+        if( _.isObject(router) ){
+            if( !_.isEmpty(router) ){
+                app.use(`/api/${key}`, router);
+            }else{
+                console.error(`Router ${key} is empty`);
+            }
+        }else{
+            console.error(`Router ${key} is not an object`);
+        }
+    });
+    
+    
     // index route
     app.get('/', function (req, res) {
         res.render('index');

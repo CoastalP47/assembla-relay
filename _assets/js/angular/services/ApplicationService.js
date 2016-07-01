@@ -17,7 +17,7 @@ app.factory(
     ($http) => {
         return {
             authenticate: (data, success, failure) => {
-                $http.post('/api/authenticate', data).then(success, failure);
+                $http.post('/api/application/authenticate', data).then(success, failure);
             }
         };
     }]
